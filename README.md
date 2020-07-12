@@ -1,4 +1,4 @@
-# Unit call calculator
+# Unit cell calculator
 
 Calculate lattice parameters from X-ray diffraction data.
 
