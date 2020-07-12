@@ -81,7 +81,7 @@ def solve_equations(lattice_system):
                  'a: {0:.2f} Å, b: {1:.2f} Å, c: {2:.2f} Å'.format(a[0], a[0], a[0]),
                  'alpha: {0:.2f}°, beta: {1:.2f}°, gamma: {2:.2f}°'.format(alpha_start, beta_start, gamma_start),
                  'Volume: {0:.2f} Å3'.format(a[0]**3),
-                 'Residuals: a: {0:.2f} Å'.format(equations_cubic((a))[0])
+                 'Residuals: a: {0:.5f} Å'.format(equations_cubic((a))[0])
                  )
     
     elif lattice_system == 'Hexagonal':
@@ -93,7 +93,7 @@ def solve_equations(lattice_system):
                  'a: {0:.2f} Å, b: {1:.2f} Å, c: {2:.2f} Å'.format(a, a, c),
                  'alpha: {0:.2f}°, beta: {1:.2f}°, gamma: {2:.2f}°'.format(alpha_start, beta_start, 120),
                  'Volume: {0:.2f} Å3'.format(a**2*c*m.sin(m.radians(60))),
-                 'Residuals: a: {0:.2f} Å, c: {1:.2f} Å'.format(equations_hexagonal((a, c))[0], equations_hexagonal((a, c))[1])
+                 'Residuals: a: {0:.5f} Å, c: {1:.5f} Å'.format(equations_hexagonal((a, c))[0], equations_hexagonal((a, c))[1])
                  )   
 
     elif lattice_system == 'Rhombohedral':
@@ -105,7 +105,7 @@ def solve_equations(lattice_system):
                  'a: {0:.2f} Å, b: {1:.2f} Å, c: {2:.2f} Å'.format(a, a, a),
                  'alpha: {0:.2f}°, beta: {1:.2f}°, gamma: {2:.2f}°'.format(alpha, alpha, alpha),
                  'Volume: {0:.2f} Å3'.format(a**3*(1-3*(m.cos(m.radians(alpha)))**2+2*(m.cos(m.radians(alpha)))**3)**0.5),
-                 'Residuals: a: {0:.2f} Å, c: {1:.2f} Å'.format(equations_rhombohedral((a, alpha))[0], equations_rhombohedral((a, alpha))[1])
+                 'Residuals: a: {0:.5f} Å, c: {1:.5f} Å'.format(equations_rhombohedral((a, alpha))[0], equations_rhombohedral((a, alpha))[1])
                  )   
     
     elif lattice_system == 'Tetragonal':
@@ -117,7 +117,7 @@ def solve_equations(lattice_system):
                  'a: {0:.2f} Å, b: {1:.2f} Å, c: {2:.2f} Å'.format(a, a, c),
                  'alpha: {0:.2f}°, beta: {1:.2f}°, gamma: {2:.2f}°'.format(alpha_start, beta_start, gamma_start),
                  'Volume: {0:.2f} Å3'.format(a**2*c),
-                 'Residuals: a: {0:.2f} Å, c: {1:.2f} Å'.format(equations_tetragonal((a, c))[0], equations_tetragonal((a, c))[1])
+                 'Residuals: a: {0:.5f} Å, c: {1:.5f} Å'.format(equations_tetragonal((a, c))[0], equations_tetragonal((a, c))[1])
                  )    
         
     elif lattice_system == 'Orthorhombic':
@@ -129,7 +129,7 @@ def solve_equations(lattice_system):
                  'a: {0:.2f} Å, b: {1:.2f} Å, c: {2:.2f} Å'.format(a, b, c),
                  'alpha: {0:.2f}°, beta: {1:.2f}°, gamma: {2:.2f}°'.format(alpha_start, beta_start, gamma_start),
                  'Volume: {0:.2f} Å3'.format(a*b*c),
-                 'Residuals: a: {0:.2f} Å, b: {1:.2f} Å, c: {2:.2f} Å'.format(equations_orthorhombic((a, b, c))[0],equations_orthorhombic((a, b, c))[1],equations_orthorhombic((a, b, c))[2])              
+                 'Residuals: a: {0:.5f} Å, b: {1:.5f} Å, c: {2:.5f} Å'.format(equations_orthorhombic((a, b, c))[0],equations_orthorhombic((a, b, c))[1],equations_orthorhombic((a, b, c))[2])              
                  )
     
     elif lattice_system == 'Monoclinic':
@@ -141,7 +141,7 @@ def solve_equations(lattice_system):
                  'a: {0:.2f} Å, b: {1:.2f} Å, c: {2:.2f} Å'.format(a, b, c),
                  'alpha: {0:.2f}°, beta: {1:.2f}°, gamma: {2:.2f}°'.format(alpha_start, beta, gamma_start),
                  'Volume: {0:.2f} Å3'.format(a*b*c*m.sin(m.radians(beta))),
-                 'Residuals: a: {0:.2f} Å, b: {1:.2f} Å, c: {2:.2f} Å, beta: {3:.2f}°'.format(equations_monoclinic((a, b, c, beta))[0],equations_monoclinic((a, b, c, beta))[1],equations_monoclinic((a, b, c, beta))[2], equations_monoclinic((a, b, c, beta))[3])
+                 'Residuals: a: {0:.5f} Å, b: {1:.5f} Å, c: {2:.5f} Å, beta: {3:.5f}°'.format(equations_monoclinic((a, b, c, beta))[0],equations_monoclinic((a, b, c, beta))[1],equations_monoclinic((a, b, c, beta))[2], equations_monoclinic((a, b, c, beta))[3])
                  )
     
     elif lattice_system == 'Triclinic':
@@ -153,7 +153,7 @@ def solve_equations(lattice_system):
                  'a: {0:.2f} Å, b: {1:.2f} Å, c: {2:.2f} Å'.format(a, b, c),
                  'alpha: {0:.2f}°, beta: {1:.2f}°, gamma: {2:.2f}°'.format(alpha, beta, gamma),
                  'Volume: {0:.2f} Å3'.format(a*b*c*(1-m.cos(m.radians(alpha))**2 - m.cos(m.radians(beta))**2 - m.cos(m.radians(gamma))**2 + 2*(m.cos(m.radians(alpha))*m.cos(m.radians(beta))*m.cos(m.radians(gamma))))**0.5),
-                 'Residuals: a: {0:.2f} Å, b: {1:.2f} Å, c: {2:.2f} Å, alpha: {3:.2f}°, beta: {4:.2f}°, gamma: {5:.2f}°'.format(equations_triclinic((a, b, c, alpha, beta, gamma))[0],equations_triclinic((a, b, c, alpha, beta, gamma))[1],equations_triclinic((a, b, c, alpha, beta, gamma))[2],equations_triclinic((a, b, c, alpha, beta, gamma))[3],equations_triclinic((a, b, c, alpha, beta, gamma))[4],equations_triclinic((a, b, c, alpha, beta, gamma))[5])
+                 'Residuals: a: {0:.5f} Å, b: {1:.5f} Å, c: {2:.5f} Å, alpha: {3:.5f}°, beta: {4:.5f}°, gamma: {5:.5f}°'.format(equations_triclinic((a, b, c, alpha, beta, gamma))[0],equations_triclinic((a, b, c, alpha, beta, gamma))[1],equations_triclinic((a, b, c, alpha, beta, gamma))[2],equations_triclinic((a, b, c, alpha, beta, gamma))[3],equations_triclinic((a, b, c, alpha, beta, gamma))[4],equations_triclinic((a, b, c, alpha, beta, gamma))[5])
                  )
         
 # initial guess for solution
@@ -206,24 +206,24 @@ while True:
                 #print(event)
                 #print(values)
                 try: wavelenght = float(values[0])
-                except: 
+                except ValueError: 
                     sg.popup('Error',  'wavelenght value must be float')
                     continue
                 input_values = np.reshape(list(values.values())[1:], (number_of_peaks[lattice_system], 4))
                 try: two_theta = input_values[:,0].astype(float)
-                except: 
+                except ValueError: 
                     sg.popup('Error',  'two theta values must be float')
                     continue
-                try: h= input_values[:,1].astype(int)
-                except: 
+                try: h = input_values[:,1].astype(int)
+                except ValueError: 
                     sg.popup('Error',  'h values must be integer')
                     continue
                 try: k = input_values[:,2].astype(int)
-                except: 
+                except ValueError: 
                     sg.popup('Error',  'k values must be integer')
                     continue
                 try: l = input_values[:,3].astype(int)
-                except: 
+                except ValueError: 
                     sg.popup('Error',  'l values must be integer')
                     continue
 
